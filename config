@@ -49,6 +49,19 @@ exec compton
 exec shutter	
 exec nitrogen --restore
 bindsym $mod+shift+x exec /bin/lock
+exec --no-startup-id firefox
+for_window [class="discord"] move container to workspace 2
+exec --no-startup-id discord
+for_window [class="Spotify"] move container to workspace 3
+exec --no-startup-id spotify
+assign [class="discord"] 2
+
+#spotify controls 
+bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym XF86AudioStop exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop    
+bindsym XF86AudioPause exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause 
+bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next   
+
 
 # change focus
 bindsym $mod+j focus left
